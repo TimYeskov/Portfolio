@@ -1,0 +1,314 @@
+
+import './App.scss';
+import './Normalize.scss'
+import themeIcon from './img/theme.svg'
+import html from './img/HTML.svg'
+import js from './img/js.svg'
+import react from './img/react.svg'
+import ts from './img/ts.svg'
+//
+import htmlpng from './img/html.png'
+import jspng from './img/js.png'
+import reactpng from './img/react.png'
+import tspng from './img/ts.png'
+import getBoundingClientRect from 'react'
+import projectImg from './img/projectImg.png'
+import buttonIcon from './img/buttonIcon.svg'
+import git from './img/git.svg'
+import mail from './img/Mail.svg'
+import { useRef,useEffect,useState } from 'react';
+
+import pizzaImg from './img/reactPizza.png';
+import pizzaAnimation from './img/Animation2.gif'
+import weatherAn from './img/WeatherAn.gif'
+import timerAn from './img/TimerAn.gif'
+import tetrisAn from './img/TetrisAn.gif'
+function App() {
+  const downloadLinkRef = useRef(null);
+  const handleDownload = () => {
+    const fileUrl = '  https://drive.google.com/file/d/1zVw3nGxUvUMcswLpuV2xyw0a9JoyW0mK/view?usp=share_link';
+
+    const downloadLink = document.createElement('a');
+    downloadLink.href = fileUrl;
+    downloadLink.download = "Timur's Resume.pdf"; // Укажите желаемое имя файла для скачивания
+    downloadLink.target = '_blank';
+
+    // Симулируем щелчок по ссылке для запуска скачивания
+    downloadLink.click();
+  };
+  const scrollToSection=(sectionId)=>{
+    const section = document.getElementById(sectionId);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+  }
+  const elementRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const windowHeight = window.innerHeight;
+      const element = document.getElementById('your-element-id'); // Замените 'your-element-id' на идентификатор своего элемента
+
+      if (element) {
+        const { top, bottom } = element.getBoundingClientRect();
+
+        if (top < windowHeight && bottom >= 0) {
+          setIsVisible(true);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+ 
+ 
+  return (
+    <div className="App">
+      <header>
+          <h4 className='TE'>TE.</h4>
+          <div>
+            <h4 onClick={()=>scrollToSection('projects')}>Projects</h4>
+            <h4 onClick={()=>scrollToSection('services')}>Services</h4>
+            <h4 onClick={()=>scrollToSection('skills')}>Skills</h4>
+            <h4 onClick={handleDownload} >Resume</h4>
+          
+            {/* <img src={themeIcon} alt='theme'/> */}
+           
+          </div>
+      </header>
+      <main>
+        <section className='about'>
+           <h4>Hey,I'm</h4>
+           <h1>Timur Yeskov</h1>
+           <p>I'm an enthusiastic and detail-oriented Frontend Software Engineer seeking an entry-level position with
+           Company to use my skills in coding, troubleshooting complex problems, and assisting in the timely
+           completion of projects.</p>
+           <div style={{display:"flex"}}>
+           <a href='https://github.com/TimYeskov' target='_blank'> <img src={git} style={{width:'50px',marginRight:"20px"}}/></a>
+           {/* <img src={mail} style={{marginRight:"20px"}}/> */}
+           <a ref={downloadLinkRef} style={{ display: 'none' }} />
+      <button onClick={handleDownload} className='resume__btn'>View resume</button>
+      <p className='mail'>timur.yeskov@gmail.com</p>
+           </div>
+        
+        </section>
+        <section className='services'  id='services'>
+          <h1>Services</h1>
+          <div className='container'>
+            <div className='container_block'>
+              <div style={{  backgroundImage:" linear-gradient(#0C8AE5,#F328BA)"}}>
+                <h4>UX/Usability</h4>
+                <p > Skill in creating user-centric designs, conducting user research, prototyping and testing interfaces, optimizing usability, and delivering intuitive and enjoyable experiences across digital products and services.</p>
+                </div>
+                <div  style={{  backgroundImage:" linear-gradient(#DE1FEF,#7B0854)" }}>
+                <h4>Responsive and cross-browser layout</h4>
+                <p >Proficiency in designing and developing web layouts that adapt seamlessly to different screen sizes and devices, ensuring consistent functionality and visual integrity across various browsers and platforms.</p>
+                </div>
+                <div style={{  backgroundImage:" linear-gradient(#9603AE87,#06AFA5)" }}>
+                <h4>Web Application Architecture Design</h4>
+                <p >Experienced in designing scalable and robust web application architectures that meet the specific requirements of the project. Proficient in selecting suitable technologies,security, and maintainability.</p>
+                </div>
+            </div>
+            <div className='container_block'> 
+                <div style={{  backgroundImage:" linear-gradient(#23ECE0,#BE16DA87)" }}>
+                <h4>Website testing and debugging</h4>
+                <p >Skilled in conducting thorough testing and debugging of websites to ensure optimal functionality and user experience.Experienced in using debugging tools and techniques to troubleshoot and resolve issues efficiently.</p>
+                </div>
+                <div style={{  backgroundImage:" linear-gradient(#DD20A8,#14A8FC7A)" }}>
+                <h4>Layout of web pages according to the layout</h4>
+                <p >Skilled in creating well-structured and visually appealing web page layouts based on provided design mockups or wireframes. Proficient in organizing content, applying appropriate grid systems, and maintaining consistent spacing and alignment for optimal user experience. </p>
+                </div>
+                <div style={{  backgroundImage:" linear-gradient(#FF2380,#C780FFB2,#12DF7DB2)" }}>
+                <h4>Written code refactoring</h4>
+                <p > Experienced in performing code refactoring to improve code quality, readability, and maintainability.Skilled in applying design patterns, modularizing code, and optimizing algorithms for improved performance.</p>
+                </div>
+            </div>
+          </div>
+        </section>
+        <section className='skills'  id='skills'>
+          <h1>Skills</h1>
+          <div className='container'>
+            <div style={{backgroundImage:`linear-gradient(#e97521,#f7f2f200)`}} className='skills__div'>
+              <img src={html} style={{position:"relative",top:"-2px",right:"1px"}}/>
+              <h4>HTML5/CSS3</h4>
+              <div>
+                <ul>
+                  <li> • Attention to detail to create pixel-perfect HTML/CSS3 designs.</li>
+                  <li> • Effective communication and collaboration for seamless HTML/CSS3 development.</li>
+                  <li> • Collaboration with UX/UI designers to ensure seamless integration of HTML/CSS3 elements.</li>
+                  <li> • Time management to meet project deadlines and deliver high-quality HTML/CSS3 work.</li>
+                </ul>
+              </div>
+            </div>
+            <div style={{backgroundImage:`linear-gradient(#e9d44d,#f7f2f200)`}} className='skills__div'>
+              <img src={js}  style={{position:"relative",top:"-2px",right:"3px"}}/>
+              <h4>Javascript</h4>
+              <div>
+                <ul>
+                  <li> • Strong problem-solving skills in JavaScript</li>
+                  <li> • Excellent communication abilities for effective collaboration.</li>
+                  <li> • Highly adaptable to changing JavaScript technologies.</li>
+                  <li> • Keen attention to detail in writing clean and error-free code.</li>
+                </ul>
+              </div>
+            </div>
+            <div  style={{backgroundImage:`linear-gradient(#5ed3f3,#f7f2f200)`}} className='skills__div'>
+              <img src={react}  style={{position:"relative",top:"-2px",right:"1px"}}/>
+              <h4>React</h4>
+              <div>
+                <ul>
+                  <li>  •Proficient in developing scalable web applications using React.</li>
+                  <li> • Strong understanding of React component lifecycle and state management.</li>
+                  <li> • Agile mindset for quickly adapting to evolving React frameworks and libraries.</li>
+                  <li> • Attention to detail in crafting reusable and maintainable React code.</li>
+                </ul>
+              </div>
+            </div>
+            <div  style={{backgroundImage:`linear-gradient(#2f74c0,#f7f2f200)`}} className='skills__div'>
+              <img src={ts}/>
+              <h4>Typescript</h4>
+              <div>
+                <ul>
+                  <li> • Skilled in developing robust and type-safe applications using TypeScript.</li>
+                  <li> • Effective problem-solving skills for tackling complex challenges in TypeScript projects.</li>
+                  <li> • Proficient in leveraging TypeScript's features to enhance code quality and maintainability.</li>
+                  <li> • Strong understanding of TypeScript's static typing and type inference capabilities.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="projects" id='projects'>
+          <h1>Featured projects</h1>
+          <div className='container'>
+            <div className='project__block'>
+              <div className='left-img'>
+              <figure style={{margin:"0"}}>
+  <img src={pizzaAnimation} />
+</figure>
+              </div>
+              
+              <div className='block__right' id="your-element-id" style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 3s' }}>
+              <div>
+                <h1>React-Pizza e-commerce</h1>
+                <p>A simple and intuitive e-commerce platform built with React, offering a delightful online pizza ordering experience. Browse my menu, customize your favorite pizzas, and conveniently place your order with ease.</p>
+                <h4>Website</h4>
+                <div className='buttons'> 
+                 <a href='https://reactpizza.onrender.com' target='_blank'>
+                 <button className='work'>
+                  <span>View Live</span>
+                  <img src={buttonIcon}/>
+                 </button>
+                 </a>
+                 <a href='https://github.com/TimYeskov/ReactPizza' target='_blank'>
+                <button className='work'>GitHub repo</button>
+                 </a>
+                </div>
+              </div>
+              </div>
+            </div>
+
+            <div className='project__block'>
+              <div className='block__right'  id="your-element-id" style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 3s' }}>
+              <div>
+                <h1>Weather App</h1>
+                <p>This is intuitive weather application built with React. It allows users to quickly check the current weather conditions and get accurate forecasts for any location. The app provides a clean and user-friendly interface, making it easy to navigate and find the information you need.</p>
+                <h4>App</h4>
+                <div className='buttons'> 
+                <a href='https://weather-app-b39n.onrender.com' target='_blank'>
+                 <button className='work'>
+                  <span>View Live</span>
+                  <img src={buttonIcon}/>
+                 </button>
+                 </a>
+                 <a href='https://github.com/TimYeskov/Weather-app' target='_blank'>
+                 <button className='work'>
+                  <span>GitHub repo</span>
+                
+                 </button>
+                 </a>
+                </div>
+              </div>
+              </div>
+              <div className='right-img'>
+              <figure style={{margin:"0"}}>
+                   <img src={weatherAn} />
+             </figure>
+          
+              </div>
+           
+            </div>
+
+            <div className='project__block' >
+            <div className='timer-img'>
+              <figure style={{margin:"0"}}>
+               <img src={timerAn} />
+             </figure>
+              {/* <img src={timer}/> */}
+              </div>
+              <div className='block__right'  id="your-element-id" style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 3s' }}>
+              <div>
+                <h1>Pomodorro Timer</h1>
+                <p>A simple and efficient Pomodoro Timer built with React. Stay focused and improve productivity by breaking tasks into manageable intervals. Customize work and break durations to suit your needs. Get started with the React Pomodoro Timer and enhance your time management skills.</p>
+                <h4>App</h4>
+                <div className='buttons'> 
+                <a href='https://pomodoro-timer-d1bw.onrender.com' target='_blank'>
+                <button className='work'>
+                  <span>View Live</span>
+                  <img src={buttonIcon}/>
+                 </button>
+                </a>
+                <a href='https://github.com/TimYeskov/Pomodoro-timer' target='_blank'>
+                <button className='work'>GitHub repo</button>
+                </a>
+               
+                </div>
+              </div>
+              </div>
+            </div>
+
+            <div className='project__block'>
+              <div className='block__right'  id="your-element-id" style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 3s' }}>
+              <div>
+                <h1>Tetris</h1>
+                <p>Enjoy the timeless thrill of Tetris with this JavaScript implementation. Clear lines, stack blocks, and aim for high scores in this engaging and visually appealing game. Experience smooth controls and nostalgic gameplay. Have fun with JavaScript Tetris!</p>
+                <h4>Game</h4>
+                <div className='buttons'> 
+                
+                <a href='https://github.com/TimYeskov/Tetris' target='_blank'><button className='work'>GitHub repo</button></a> 
+                </div>
+              </div>
+              </div>
+              <div className='tetris-img'>
+              <figure style={{margin:"0"}}>
+                   <img src={tetrisAn} />
+             </figure>
+          
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      {/* <footer  id='contact'>
+        <h1>Get in touch</h1>
+        <form class="decor">
+
+<div class="form-inner">
+<input type="text" placeholder="Username"/>
+<input type="email" placeholder="Email"/>
+<textarea placeholder="Сообщение..." rows="3"></textarea>
+<input type="submit" value="Отправить"/>
+</div>
+</form>
+      </footer> */}
+    </div>
+  );
+}
+
+export default App;
