@@ -1,0 +1,69 @@
+@media (max-width: 450px) {
+  .App {
+    main {
+      margin-top: 40px;
+      h2 {
+        font-size: 23px !important;
+        // font-family: "Roboto";
+      }
+      .about {
+        h1 {
+          font-size: 50px;
+        }
+      }
+      .skills {
+        .container {
+          margin-bottom: 0;
+          @media (max-width: 360px) {
+            align-items: center;
+            justify-content: center;
+            display: flex;
+          }
+        }
+      }
+      .projects {
+        .container {
+          .project__block {
+            h3 {
+              font-size: 18px !important;
+            }
+            .left-img {
+              img {
+                left: -155px;
+              }
+            }
+            .timer-img {
+              margin: 0 auto;
+              left: 0px;
+
+              img {
+                left: -110px !important;
+                width: 160%;
+                height: 304px;
+              }
+            }
+            .right-img {
+              height: 304px;
+            }
+
+            .timer-img {
+              img {
+                position: relative;
+                left: -160px;
+              }
+            }
+            .tetris-img {
+              margin: 0 auto;
+              left: 0px;
+              margin-top: 80px;
+              img {
+                left: -300px;
+                width: 300%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
