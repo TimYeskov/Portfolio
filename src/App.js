@@ -17,6 +17,8 @@ import git from "./img/git.svg";
 import mail from "./img/Mail.svg";
 import { useRef, useEffect, useState } from "react";
 
+import Header from "./components/Header";
+
 import pizzaImg from "./img/reactPizza.png";
 import pizzaAnimation from "./img/Animation2.gif";
 import weatherAn from "./img/WeatherAn.gif";
@@ -36,50 +38,11 @@ function App() {
     // Симулируем щелчок по ссылке для запуска скачивания
     downloadLink.click();
   };
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-  const elementRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop =
-        window.pageYOffset || document.documentElement.scrollTop;
-      const windowHeight = window.innerHeight;
-      const element = document.getElementById("your-element-id"); // Замените 'your-element-id' на идентификатор своего элемента
-
-      if (element) {
-        const { top, bottom } = element.getBoundingClientRect();
-
-        if (top < windowHeight && bottom >= 0) {
-          setIsVisible(true);
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   return (
     <div className="App">
-      <header>
-        <h4 className="TE">TE.</h4>
-        <div>
-          <h4 onClick={() => scrollToSection("projects")}>Projects</h4>
-          <h4 onClick={() => scrollToSection("services")}>Services</h4>
-          <h4 onClick={() => scrollToSection("skills")}>Skills</h4>
-          <h4 onClick={handleDownload}>Resume</h4>
-
-          {/* <img src={themeIcon} alt='theme'/> */}
-        </div>
-      </header>
+      <Header handleDownload={handleDownload} setIsVisible={setIsVisible} />
       <main>
         <section className="about">
           <h4 style={{ fontWeight: "800" }}>Hey,I'm</h4>
@@ -147,7 +110,7 @@ function App() {
             <div className="container_block">
               <div
                 style={{
-                  backgroundImage: " linear-gradient(#23ECE0,#BE16DA87)",
+                  backgroundImage: "  linear-gradient(#F328BA,#0C8AE5)",
                 }}
               >
                 <h3>Website testing and debugging</h3>
@@ -160,7 +123,7 @@ function App() {
               </div>
               <div
                 style={{
-                  backgroundImage: " linear-gradient(#DD20A8,#14A8FC7A)",
+                  backgroundImage: " linear-gradient(#7B0854,#DE1FEF)",
                 }}
               >
                 <h3>Layout of web pages according to the layout</h3>
@@ -174,8 +137,7 @@ function App() {
               </div>
               <div
                 style={{
-                  backgroundImage:
-                    " linear-gradient(#FF2380,#C780FFB2,#12DF7DB2)",
+                  backgroundImage: " linear-gradient(#06AFA5,#9603AE87)",
                 }}
               >
                 <h3>Written code refactoring</h3>
@@ -333,11 +295,7 @@ function App() {
                 </figure>
               </div>
 
-              <div
-                className="block__right"
-                id="your-element-id"
-                style={{ opacity: isVisible ? 1 : 0, transition: "opacity 3s" }}
-              >
+              <div className="block__right" id="your-element-id">
                 <div>
                   <h2>React-Pizza e-commerce</h2>
                   <h3>
@@ -365,12 +323,8 @@ function App() {
               </div>
             </div>
 
-            <div className="project__block">
-              <div
-                className="block__right"
-                id="your-element-id"
-                style={{ opacity: isVisible ? 1 : 0, transition: "opacity 3s" }}
-              >
+            <div className="project__block reverse">
+              <div className="block__right" id="your-element-id">
                 <div>
                   <h2>Weather App</h2>
                   <h3>
@@ -416,11 +370,7 @@ function App() {
                 </figure>
                 {/* <img src={timer}/> */}
               </div>
-              <div
-                className="block__right"
-                id="your-element-id"
-                style={{ opacity: isVisible ? 1 : 0, transition: "opacity 3s" }}
-              >
+              <div className="block__right" id="your-element-id">
                 <div>
                   <h2>Pomodorro Timer</h2>
                   <h3>
@@ -452,12 +402,8 @@ function App() {
               </div>
             </div>
 
-            <div className="project__block">
-              <div
-                className="block__right"
-                id="your-element-id"
-                style={{ opacity: isVisible ? 1 : 0, transition: "opacity 3s" }}
-              >
+            {/* <div className="project__block reverse">
+              <div className="block__right" id="your-element-id">
                 <div>
                   <h2>Tetris</h2>
                   <h3>
@@ -483,7 +429,7 @@ function App() {
                   <img src={tetrisAn} />
                 </figure>
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
       </main>

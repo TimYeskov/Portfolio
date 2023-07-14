@@ -1,65 +1,137 @@
 @media (max-width: 450px) {
   .App {
-    main {
-      margin-top: 40px;
-      h2 {
-        font-size: 23px !important;
-        // font-family: "Roboto";
+    header {
+      .TE {
+        margin-right: 15px;
       }
-      .about {
-        h1 {
-          font-size: 50px;
+      div {
+        h4 {
+          margin-right: 15px;
+        }
+        h4:last-child {
+          margin-right: 0 !important;
         }
       }
-      .skills {
-        .container {
-          margin-bottom: 0;
-          @media (max-width: 360px) {
-            align-items: center;
-            justify-content: center;
-            display: flex;
+      @media (max-width: 320px) {
+        div {
+          h4 {
+            font-size: 10px;
+            margin-right: 5px;
           }
         }
       }
+    }
+    main {
+      padding: 0 10px;
+      padding-top: 50px;
+
+      .about {
+        margin-bottom: 50px;
+        h1 {
+          font-size: 50px;
+          margin: 10px 0;
+        }
+        h4 {
+          font-size: 16px;
+          margin: 10px 0;
+        }
+        .mail {
+          font-size: 10px;
+        }
+
+        div {
+          img {
+            width: 20px !important;
+          }
+          button {
+            font-size: 10px;
+          }
+        }
+      }
+      .services,
+      .skills {
+        margin-bottom: 100px;
+        @media (max-width: 320px) {
+          .container {
+            .skills__div {
+              min-width: 250px;
+              height: 350px;
+            }
+          }
+        }
+      }
+      .services {
+        @media (max-width: 320px) {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
       .projects {
         .container {
           .project__block {
-            h3 {
-              font-size: 18px !important;
+            .timer-img {
+              @media (max-width: 400px) {
+                img {
+                  left: -180px;
+                }
+              }
+              @media (max-width: 370px) {
+                img {
+                  left: -160px;
+                }
+              }
+              @media (max-width: 340px) {
+                img {
+                  left: -150px;
+                }
+              }
+              @media (max-width: 320px) {
+                left: 20px;
+                img {
+                  left: -135px;
+                  height: 294px;
+                  width: 210%;
+                }
+              }
+              @media (max-width: 300px) {
+                left: 20px;
+                img {
+                  left: -115px;
+                  height: 244px;
+                  width: 210%;
+                }
+              }
             }
             .left-img {
               img {
-                left: -155px;
-              }
-            }
-            .timer-img {
-              margin: 0 auto;
-              left: 0px;
-
-              img {
-                left: -110px !important;
-                width: 160%;
-                height: 304px;
+                left: -180px;
+                @media (max-width: 370px) {
+                  left: -160px;
+                }
+                @media (max-width: 340px) {
+                  left: -150px;
+                }
               }
             }
             .right-img {
-              height: 304px;
+              @media (max-width: 370px) {
+                img {
+                  height: 294px;
+                }
+              }
             }
-
-            .timer-img {
-              img {
-                position: relative;
-                left: -160px;
+            .block__right {
+              div {
+                h3 {
+                  font-size: 20px;
+                  max-width: 300px;
+                }
               }
             }
             .tetris-img {
-              margin: 0 auto;
-              left: 0px;
-              margin-top: 80px;
-              img {
-                left: -300px;
-                width: 300%;
-              }
             }
           }
         }
