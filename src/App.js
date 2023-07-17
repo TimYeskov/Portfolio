@@ -1,29 +1,20 @@
 import "../src/styles/App.scss";
 import "../src/styles/Normalize.scss";
-import themeIcon from "./img/theme.svg";
+
 import html from "./img/HTML.svg";
 import js from "./img/js.svg";
 import react from "./img/react.svg";
 import ts from "./img/ts.svg";
-//
-import htmlpng from "./img/html.png";
-import jspng from "./img/js.png";
-import reactpng from "./img/react.png";
-import tspng from "./img/ts.png";
-import getBoundingClientRect from "react";
-import projectImg from "./img/projectImg.png";
-import buttonIcon from "./img/buttonIcon.svg";
-import git from "./img/git.svg";
-import mail from "./img/Mail.svg";
+
 import { useRef, useEffect, useState } from "react";
 
 import Header from "./components/Header";
+import FeedBack from "./components/Feedback";
 
-import pizzaImg from "./img/reactPizza.png";
 import pizzaAnimation from "./img/Animation2.gif";
 import weatherAn from "./img/WeatherAn.gif";
 import timerAn from "./img/TimerAn.gif";
-import tetrisAn from "./img/TetrisAn.gif";
+import flexproAn from "./img/flexpro.gif";
 function App() {
   const downloadLinkRef = useRef(null);
   const handleDownload = () => {
@@ -32,10 +23,8 @@ function App() {
 
     const downloadLink = document.createElement("a");
     downloadLink.href = fileUrl;
-    downloadLink.download = "Timur's Resume.pdf"; // Укажите желаемое имя файла для скачивания
+    downloadLink.download = "Timur's Resume.pdf";
     downloadLink.target = "_blank";
-
-    // Симулируем щелчок по ссылке для запуска скачивания
     downloadLink.click();
   };
   const [isVisible, setIsVisible] = useState(false);
@@ -58,7 +47,7 @@ function App() {
               {" "}
               <img src={git} style={{ width: "50px", marginRight: "20px" }} />
             </a>
-            {/* <img src={mail} style={{marginRight:"20px"}}/> */}
+
             <a ref={downloadLinkRef} style={{ display: "none" }} />
             <button onClick={handleDownload} className="resume__btn">
               View resume
@@ -322,6 +311,41 @@ function App() {
                 </div>
               </div>
             </div>
+            <div className="project__block reverse">
+              <div className="block__right" id="your-element-id">
+                <div>
+                  <h2>FlexPro</h2>
+                  <h3>
+                    "FlexPro" is a one-page website featuring navigation,
+                    sliders, a feedback form, and responsive design. It
+                    showcases an upcoming product, allowing users to explore its
+                    functionality and provide feedback. With an intuitive
+                    interface and user-friendly experience, interacting with the
+                    website is seamless and enjoyable.
+                  </h3>
+                  <h4>FlexPro</h4>
+                  <div className="buttons">
+                    <a href="https://flexpro.onrender.com/" target="_blank">
+                      <button className="work">
+                        <span>View Live</span>
+                        <img src={buttonIcon} />
+                      </button>
+                    </a>
+                    <a
+                      href="https://github.com/TimYeskov/flexpro"
+                      target="_blank"
+                    >
+                      <button className="work">GitHub repo</button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="flexpro-img">
+                <figure style={{ margin: "0" }}>
+                  <img src={flexproAn} />
+                </figure>
+              </div>
+            </div>
 
             <div className="project__block reverse">
               <div className="block__right" id="your-element-id">
@@ -401,50 +425,17 @@ function App() {
                 </div>
               </div>
             </div>
-
-            {/* <div className="project__block reverse">
-              <div className="block__right" id="your-element-id">
-                <div>
-                  <h2>Tetris</h2>
-                  <h3>
-                    Enjoy the timeless thrill of Tetris with this JavaScript
-                    implementation. Clear lines, stack blocks, and aim for high
-                    scores in this engaging and visually appealing game.
-                    Experience smooth controls and nostalgic gameplay. Have fun
-                    with JavaScript Tetris!
-                  </h3>
-                  <h4>Game</h4>
-                  <div className="buttons">
-                    <a
-                      href="https://github.com/TimYeskov/Tetris"
-                      target="_blank"
-                    >
-                      <button className="work">GitHub repo</button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="tetris-img">
-                <figure style={{ margin: "0" }}>
-                  <img src={tetrisAn} />
-                </figure>
-              </div>
-            </div> */}
           </div>
         </section>
+        <section className="feedback" id="feedback">
+          <h2>What can us do for you?</h2>
+          <h3>
+            We are ready to work on a project of any complexity, whether it’s
+            commercial or residential.
+          </h3>
+          <FeedBack />
+        </section>
       </main>
-      {/* <footer  id='contact'>
-        <h1>Get in touch</h1>
-        <form class="decor">
-
-<div class="form-inner">
-<input type="text" placeholder="Username"/>
-<input type="email" placeholder="Email"/>
-<textarea placeholder="Сообщение..." rows="3"></textarea>
-<input type="submit" value="Отправить"/>
-</div>
-</form>
-      </footer> */}
     </div>
   );
 }
