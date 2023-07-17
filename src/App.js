@@ -6,6 +6,9 @@ import js from "./img/js.svg";
 import react from "./img/react.svg";
 import ts from "./img/ts.svg";
 
+import buttonIcon from "./img/buttonIcon.svg";
+import git from "./img/git.svg";
+import mail from "./img/Mail.svg";
 import { useRef, useEffect, useState } from "react";
 
 import Header from "./components/Header";
@@ -47,7 +50,7 @@ function App() {
               {" "}
               <img src={git} style={{ width: "50px", marginRight: "20px" }} />
             </a>
-
+            {/* <img src={mail} style={{marginRight:"20px"}}/> */}
             <a ref={downloadLinkRef} style={{ display: "none" }} />
             <button onClick={handleDownload} className="resume__btn">
               View resume
@@ -436,6 +439,18 @@ function App() {
           <FeedBack />
         </section>
       </main>
+      {/* <footer  id='contact'>
+        <h1>Get in touch</h1>
+        <form class="decor">
+
+<div class="form-inner">
+<input type="text" placeholder="Username"/>
+<input type="email" placeholder="Email"/>
+<textarea placeholder="Сообщение..." rows="3"></textarea>
+<input type="submit" value="Отправить"/>
+</div>
+</form>
+      </footer> */}
     </div>
   );
 }
