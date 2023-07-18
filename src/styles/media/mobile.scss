@@ -90,22 +90,34 @@
               }
               @media (max-width: 320px) {
                 left: 20px;
+                height: 278px;
                 img {
                   left: -135px;
-                  height: 294px;
+                  height: 278px;
                   width: 210%;
                 }
               }
               @media (max-width: 300px) {
                 left: 20px;
+                height: 240px;
                 img {
-                  left: -115px;
+                  left: -125px;
                   height: 244px;
                   width: 210%;
                 }
               }
             }
             .left-img {
+              height: 300px;
+              @media (max-width: 340px) {
+                height: 280px;
+              }
+              @media (max-width: 300px) {
+                height: 260px;
+              }
+              @media (max-width: 280px) {
+                height: 240px;
+              }
               img {
                 left: -180px;
                 @media (max-width: 370px) {
@@ -113,6 +125,12 @@
                 }
                 @media (max-width: 340px) {
                   left: -150px;
+                }
+                @media (max-width: 320px) {
+                  left: -140px;
+                }
+                @media (max-width: 290px) {
+                  left: -130px;
                 }
               }
             }
@@ -131,7 +149,28 @@
                 }
               }
             }
-            .tetris-img {
+            .flexpro-img {
+              width: 100%;
+              @media (max-width: 380px) {
+                img {
+                  right: 190px;
+                  width: 210%;
+                }
+              }
+              @media (max-width: 350px) {
+                height: 288px;
+                img {
+                  width: 210%;
+                  right: 170px;
+                }
+              }
+              @media (max-width: 310px) {
+                height: 276px;
+                img {
+                  width: 250%;
+                  right: 180px;
+                }
+              }
             }
           }
         }

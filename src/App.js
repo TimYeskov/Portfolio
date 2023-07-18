@@ -431,11 +431,8 @@ function App() {
           </div>
         </section>
         <section className="feedback" id="feedback">
-          <h2>What can us do for you?</h2>
-          <h3>
-            We are ready to work on a project of any complexity, whether it’s
-            commercial or residential.
-          </h3>
+          <h2>What can i do for you?</h2>
+          <h3>I am ready to work on a project of any complexity.</h3>
           <FeedBack />
         </section>
       </main>
