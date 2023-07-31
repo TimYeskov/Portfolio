@@ -8,16 +8,14 @@ import ts from "./img/ts.svg";
 
 import buttonIcon from "./img/buttonIcon.svg";
 import git from "./img/git.svg";
-import mail from "./img/Mail.svg";
-import { useRef, useEffect, useState } from "react";
+
+import { useRef, useState } from "react";
 
 import Header from "./components/Header";
 import FeedBack from "./components/Feedback";
 
-import pizzaAnimation from "./img/Animation2.gif";
-import weatherAn from "./img/WeatherAn.gif";
-import timerAn from "./img/TimerAn.gif";
-import flexproAn from "./img/flexpro.gif";
+import { useColorTheme } from "./hooks/useColorTheme";
+
 function App() {
   const downloadLinkRef = useRef(null);
   const handleDownload = () => {
@@ -32,9 +30,15 @@ function App() {
   };
   const [isVisible, setIsVisible] = useState(false);
 
+  const { colorTheme, toggleColorTheme } = useColorTheme();
   return (
     <div className="App">
-      <Header handleDownload={handleDownload} setIsVisible={setIsVisible} />
+      <Header
+        handleDownload={handleDownload}
+        setIsVisible={setIsVisible}
+        colorTheme={colorTheme}
+        toggleColorTheme={toggleColorTheme}
+      />
       <main>
         <section className="about">
           <h4 style={{ fontWeight: "800" }}>Hey,I'm</h4>
@@ -50,7 +54,7 @@ function App() {
               {" "}
               <img src={git} style={{ width: "50px", marginRight: "20px" }} />
             </a>
-            {/* <img src={mail} style={{marginRight:"20px"}}/> */}
+
             <a ref={downloadLinkRef} style={{ display: "none" }} />
             <button onClick={handleDownload} className="resume__btn">
               View resume
@@ -282,9 +286,10 @@ function App() {
           <div className="container">
             <div className="project__block">
               <div className="left-img react-pizza">
-                <figure style={{ margin: "0" }}>
-                  <img src={pizzaAnimation} />
-                </figure>
+                <iframe
+                  src="https://reactpizza.onrender.com"
+                  scrolling="yes"
+                ></iframe>
               </div>
 
               <div className="block__right" id="your-element-id">
@@ -326,7 +331,7 @@ function App() {
                     interface and user-friendly experience, interacting with the
                     website is seamless and enjoyable.
                   </h3>
-                  <h4>FlexPro</h4>
+                  <h4>Website</h4>
                   <div className="buttons">
                     <a href="https://flexpro.onrender.com/" target="_blank">
                       <button className="work">
@@ -344,9 +349,7 @@ function App() {
                 </div>
               </div>
               <div className="flexpro-img">
-                <figure style={{ margin: "0" }}>
-                  <img src={flexproAn} />
-                </figure>
+                <iframe src=" https://flexpro.onrender.com/"></iframe>
               </div>
             </div>
 
@@ -384,33 +387,34 @@ function App() {
                 </div>
               </div>
               <div className="right-img weather-app">
-                <figure style={{ margin: "0" }}>
-                  <img src={weatherAn} />
-                </figure>
+                <iframe src="https://weather-app-b39n.onrender.com"></iframe>
               </div>
             </div>
 
             <div className="project__block">
               <div className="timer-img">
-                <figure style={{ margin: "0" }}>
-                  <img src={timerAn} />
-                </figure>
-                {/* <img src={timer}/> */}
+                <iframe src="https://abiturient-xrkc.onrender.com"></iframe>
               </div>
+
               <div className="block__right" id="your-element-id">
                 <div>
-                  <h2>Pomodorro Timer</h2>
+                  <h2>Abiturient</h2>
                   <h3>
-                    A simple and efficient Pomodoro Timer built with React. Stay
-                    focused and improve productivity by breaking tasks into
-                    manageable intervals. Customize work and break durations to
-                    suit your needs. Get started with the React Pomodoro Timer
-                    and enhance your time management skills.
+                    Project of online exam preparation, where we are working on
+                    creating a user-friendly platform for students and
+                    applicants. In the future, the website will offer the
+                    following features: a wide selection of trial exams,
+                    interactive learning, group selection for in-depth studies,
+                    and individual preparation to achieve maximum results.
+                    Currently, the project is under development and provides
+                    only introductory information. We have independently
+                    designed the UI/UX to make the website highly convenient and
+                    appealing to users.
                   </h3>
-                  <h4>App</h4>
+                  <h4>Website</h4>
                   <div className="buttons">
                     <a
-                      href="https://pomodoro-timer-d1bw.onrender.com"
+                      href="https://abiturient-xrkc.onrender.com"
                       target="_blank"
                     >
                       <button className="work">
@@ -436,18 +440,6 @@ function App() {
           <FeedBack />
         </section>
       </main>
-      {/* <footer  id='contact'>
-        <h1>Get in touch</h1>
-        <form class="decor">
-
-<div class="form-inner">
-<input type="text" placeholder="Username"/>
-<input type="email" placeholder="Email"/>
-<textarea placeholder="Сообщение..." rows="3"></textarea>
-<input type="submit" value="Отправить"/>
-</div>
-</form>
-      </footer> */}
     </div>
   );
 }

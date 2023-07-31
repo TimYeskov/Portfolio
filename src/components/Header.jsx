@@ -1,7 +1,11 @@
 import { useRef, useEffect, useState } from "react";
-
-const Header = ({ handleDownload }) => {
+import lightMode from "../img/light-mode.png";
+import darkMode from "../img/dark-mode.png";
+const Header = ({ handleDownload, colorTheme, toggleColorTheme }) => {
   const [currentSectionId, setCurrentSectionId] = useState(null);
+  const onChangeTheme = () => {
+    toggleColorTheme();
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,6 +61,12 @@ const Header = ({ handleDownload }) => {
     <header>
       <h4 className="TE">TE.</h4>
       <div>
+        <img
+          src={colorTheme === "light" ? darkMode : lightMode}
+          alt="theme"
+          className="theme"
+          onClick={onChangeTheme}
+        />
         <h4
           className={`${currentSectionId === "services" ? "active" : ""}`}
           onClick={() => scrollToSection("services", 60)}

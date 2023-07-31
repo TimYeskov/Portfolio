@@ -1,0 +1,12 @@
+:root {
+  --color-background: rgb(17, 17, 17, 0.75);
+  --color-font: white;
+  --color-border: white;
+  --color-focus: #9845e8;
+}
+html[data-theme="light"] {
+  --color-background: rgb(247, 248, 250, 0.75);
+  --color-font: black;
+  --color-border: black;
+  --color-focus: #4570e8;
+}
