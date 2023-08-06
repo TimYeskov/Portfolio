@@ -288,7 +288,7 @@ function App() {
               <div className="left-img react-pizza">
                 <iframe
                   src="https://reactpizza.onrender.com"
-                  scrolling="yes"
+                  frameBorder="no"
                 ></iframe>
               </div>
 
@@ -349,7 +349,10 @@ function App() {
                 </div>
               </div>
               <div className="flexpro-img">
-                <iframe src=" https://flexpro.onrender.com/"></iframe>
+                <iframe
+                  src=" https://flexpro.onrender.com/"
+                  frameBorder="no"
+                ></iframe>
               </div>
             </div>
 
@@ -387,13 +390,19 @@ function App() {
                 </div>
               </div>
               <div className="right-img weather-app">
-                <iframe src="https://weather-app-b39n.onrender.com"></iframe>
+                <iframe
+                  src="https://weather-app-b39n.onrender.com"
+                  frameBorder="no"
+                ></iframe>
               </div>
             </div>
 
             <div className="project__block">
               <div className="timer-img">
-                <iframe src="https://abiturient-xrkc.onrender.com"></iframe>
+                <iframe
+                  src="https://abiturient-xrkc.onrender.com"
+                  frameBorder="no"
+                ></iframe>
               </div>
 
               <div className="block__right" id="your-element-id">
